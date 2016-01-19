@@ -28,6 +28,13 @@ class Autor(models.Model):
     def __str__(self):
         return self.nombre
 
+LIBRO_TIPO_CHOICES = (
+    ("FISICO", 'Fisico'),
+    ("VIRTUAL", 'Virtual'),
+    ("FIS_VIR", 'FisicoVirtual'),
+
+)
+
 
 class Libro(models.Model):
 
@@ -36,6 +43,10 @@ class Libro(models.Model):
         Categoria, null=True, blank=True)
     autors = models.ManyToManyField(  # through='LibroAutor',
         Autor, null=True, blank=True)
+
+    tipo = models.CharField(max_length=50,
+                            choices=LIBRO_TIPO_CHOICES,
+                            default="FISICO")
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
