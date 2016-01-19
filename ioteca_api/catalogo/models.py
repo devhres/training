@@ -41,8 +41,8 @@ class Libro(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name = "Autor"
-        verbose_name_plural = "Autores"
+        verbose_name = "Libro"
+        verbose_name_plural = "Libros"
 
     def __str__(self):
         return self.nombre
